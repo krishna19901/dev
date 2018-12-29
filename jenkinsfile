@@ -3,6 +3,8 @@ node{
    git 'https://github.com/krishna19901/dev'
    }
     stage('compile-package'){
-   sh 'mvn package'
+    // get maven home path
+    def mvnHome = tool name: 'maven-3.5.4', type: 'maven'
+   sh "${mvnHome}/bin/mvn package"
    }
 }
